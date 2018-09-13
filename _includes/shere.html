@@ -1,0 +1,35 @@
+<div class="share">
+  <a class="svg__fb" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}"
+      onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+      title="Сохранить в Facebook" >
+  </a>
+
+  <a class="svg__tw" href="https://twitter.com/intent/tweet?via=USERNAME&url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape}}&text={{ page.title | default:"" | uri_escape}}"
+      onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+      title="Сохранить в Twittwr" >
+  </a>
+
+  <a class="odnkl" href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape}}"
+      onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+      title="Сохранить в однокласники" >
+  </a>
+
+  <a class="vk" href="http://vkontakte.ru/share.php?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape}}&text={{ page.title | default:"" | uri_escape}}"
+      onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+      title="Сохранить в вконтакте" >
+  </a>
+
+  <a class="google" href="https://plus.google.com/share?url={{ site.url }}{{ site.baseurl }}{{ page.url }}"
+      onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+      title="Сохранить в Google+" >
+  </a>
+
+  <a class="pinterest" href="http://pinterest.com/pin/create/button/?url={{ site.url }}{{ site.baseurl }}{{ page.url }}" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Сохранить в pinterest" >
+  </a>
+
+  <a class="telegram" href="https://t.me/share/url?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape}}&text={{ page.title | replace: ' ', '%20' }}" title="Отправить в telegram" >
+  </a>
+
+  <a class="email" href="mailto:?body={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape}}&amp;subject={{ page.title | replace: ' ', '%20' }}" title="Отправить email" >
+  </a>
+</div>

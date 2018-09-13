@@ -1,0 +1,57 @@
+---
+layout: default
+---
+{{content}}
+
+{% for post in paginator.posts %}
+
+{% if forloop.index0 == 1 %}
+<div class="eee-home">
+  reklama
+</div>
+{% endif %}
+
+<article class="posts" >
+<h2 class="posts__title" >
+  <a class="posts__link" href="{{post.url | prepend: site.baseurl | prepend: site.url }}" >
+    {{post.title}}
+  </a>
+</h2>
+  {%- for bread in post.breadcrumb -%}
+    {%- if forloop.last -%}
+    <a href="{{ bread.url | append: "/index.html" | prepend: site.baseurl | prepend: site.url}}" class="posts__tag">{{bread.name}}</a>
+
+    {%- endif -%}
+  {%- endfor -%}
+  <p class="posts__description" itemprop="description">{{post.description | truncate: 160}}</p>
+  <a class="posts__readmore" href="{{post.url | prepend: site.baseurl | prepend: site.url }}" >Читать дальше</a>
+</article>
+
+{% endfor %}
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination--wrap">
+<ul class="pagination"  itemscope itemtype="http://schema.org/SiteNavigationElement">
+
+      {% if paginator.previous_page %}
+      <li><a class="pagination__link prev" itemprop="url" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><span itemprop="name">&laquo;</span></a></li>
+      {% endif %}
+
+      {% if paginator.page_trail %}
+        {% for trail in paginator.page_trail %}
+          <li {% if page.url == trail.path %}class="selected"{% endif %}>
+              <a href="{{ trail.path | prepend: site.baseurl | replace: '//', '/' }}" title="{{trail.title}}"></a>
+          </li>
+
+          <li><a class="pagination__link {% if page.url == trail.path %}active{% endif %}" itemprop="url" href="{{ trail.path | prepend: site.baseurl | replace: '//', '/' }}"><span itemprop="name">{{ trail.num }}</span></a></li>
+        {% endfor %}
+      {% endif %}
+
+      {% if paginator.next_page %}
+      <li >
+          <a class="pagination__link next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a>
+      </li>
+      {% endif %}
+    </ul>
+    </nav>
+{% endif %}

@@ -1,0 +1,63 @@
+<nav class="menuRight" role="navigation" itemscope
+itemtype="http://schema.org/SiteNavigationElement">
+{% assign breadcrumb = page.breadcrumb %}
+{% assign dataYml = site.data.rightMenu %}
+{% if breadcrumb == false %}
+{%- for collect in dataYml -%}
+  {% assign collName = collect.url | remove: "/" %}
+  {% assign counter = 0 %}
+  <a href="{{ collect.url | append: "/index.html" | prepend: site.baseurl | prepend: site.url}}" class="title__columns" itemprop="url"><span itemprop="name">{{collect.name}}</span></a>
+  {%- for post in site[collName] -%}
+    {%- if post.tags contains "best" -%}
+    {% assign counter = counter | plus: 1 %}
+      <a href="{{ post.url | prepend: site.baseurl | prepend: site.url}}" class="menuRight__podCategoru">{{post.title}}</a>
+      {%- if counter == 3 -%}
+      {%- break -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{% else %}
+{% for bread in breadcrumb %}
+{% case bread.id %}
+  {% when 'collection' %}
+     {% assign collUrl = bread.url %}
+     {% assign collName = bread.name %}
+  {% when 'category' %}
+     {% assign catUrl = bread.url %}
+     {% assign catName = bread.name %}
+  {% when 'tag' %}
+     {% assign tagUrl = bread.url %}
+     {% assign tagName = bread.name %}
+{% endcase %}
+{% endfor %}
+{% endif %}
+{% for data in dataYml %}
+{% if collName == data.name %}
+<a href="{{ data.url | append: "/index.html" | prepend: site.baseurl | prepend: site.url}}" class="title__columns" itemprop="url"><span itemprop="name">{{data.name}}</span></a>
+{% for dataCat in data.category %}
+
+{% if dataCat.vlj == true %}
+<a href="{{ dataCat.url | append: "/index.html" | prepend: site.baseurl | prepend: site.url}}" class="menuRight_categoru">{{dataCat.name}}</a>
+{% assign counter = 0 %}
+
+{% assign pagColl = data.url | remove: "/" %}
+{% assign pagCat = dataCat.url | remove: "/" %}
+
+{% for collPost in site[pagColl] %}
+{% if collPost.categories contains pagCat and collPost.tags contains "best" and counter != 3 and page.url != collPost.url %}
+
+<a href="{{ collPost.url | prepend: site.baseurl | prepend: site.url}}" class="menuRight__podCategoru">{{collPost.title}}</a>
+
+{% assign counter = counter | plus: 1 %}
+{%- if counter == 3 -%}
+{%- break -%}
+{%- endif -%}
+{%endif%}
+{% endfor %}
+
+{%endif%}
+{% endfor %}
+{% endif %}
+{% endfor %}
+</nav>

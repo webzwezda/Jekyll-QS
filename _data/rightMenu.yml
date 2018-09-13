@@ -1,0 +1,24 @@
+- name: Животноводство
+  url: /zhivotnovodstvo
+
+  category:
+  - name: Рогатые
+    url: /rogatie
+    vlj: true
+  - name: Не рогатые
+    url: /rog
+    vlj: false
+
+  - name: nerogatie
+    url: br
+
+- name: Звероводство
+  url: /zverovodstvo
+
+  category:
+  - name: Рогатые
+    url: /rogatie
+    vlj: true
+
+  - name: nerogatie
+    url: br

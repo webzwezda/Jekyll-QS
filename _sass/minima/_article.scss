@@ -1,0 +1,137 @@
+.content{
+
+
+}
+.posts{
+  display: inline-flex;
+  flex-direction: column;
+
+  margin-top: $gap;
+  margin-bottom: $gap;
+
+    &:first-child {
+      margin-top: 0 ;
+    }
+
+    // &:last-child {
+    //   margin-bottom: 0;
+    // }
+}
+
+.posts__title{
+  display: inline-block;
+
+  margin: 0 0 0 $gap;
+
+  font-family: Georgia, "Palatino Linotype", Times, serif !important;
+  line-height: 1.2em;
+
+  // margin: .3em 0 0 !important;
+  //
+  // font-size: 1.3em !important;
+  // line-height: 1.2em !important;
+  // font-weight: 700 !important;
+  // text-shadow: none !important;
+
+  &::after {
+    content: none !important;
+  }
+
+}
+
+.posts__link{
+
+  text-decoration: none !important;
+
+    &:hover{
+      color: color(green,2) !important;
+    }
+}
+
+.posts__tag{
+  align-self: baseline !important;
+
+  padding: 0 0 !important;
+  margin-left: $gap;
+  margin-top: $gap / 4;
+
+  color: rgba(color(green, 5), .8) !important;
+  font-family: Georgia, "Palatino Linotype", Times, serif !important;
+  font-size: .8em !important;
+
+    &:hover{
+      color: rgba(color(green, 4), .9) !important;
+      text-decoration: underline !important;
+    }
+}
+
+.posts__description{
+  margin-top: $gap / 2 !important;;
+  margin-bottom: $gap / 2 !important;;
+
+  font-family: "Roboto","Open Sans", Helvetica,Verdana, sans-serif !important;
+  font-size: 1em !important;
+  line-height: normal !important;
+}
+
+.posts__readmore{
+  align-self: baseline !important;
+  margin-left: $gap !important;
+
+  padding: .3em 0 !important;
+
+  color: rgba(color(blue, 2), .7) !important;
+  font-size: .8em !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: Georgia, "Palatino Linotype", Times, serif !important;
+
+    &:hover{
+      color: rgba(color(blue, 1), .8) !important;
+      text-decoration: underline;
+    }
+}
+.eee-home{
+  margin-top: $gap / 2;
+  margin-bottom: $gap / 2;
+  margin-left: $gap;
+  margin-right: $gap;
+
+  padding-left: 2px;
+
+  border: 2px solid rgba(#388e3c, .4);
+  // border-radius: 2px;
+
+  &::before{
+    content: "Важно:";
+    display: block;
+
+    font-size: 1.1em;
+    font-family: Georgia, "Palatino Linotype", Times, serif;
+    line-height: 1.6em;
+    color: #555;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.13);
+  }
+}
+// min-width: 600px ++++++++
+@include for-tablet-portrait-up {
+  .posts{
+    margin-bottom: $gap;
+  }
+}
+
+// min-width: 900px - все сайты должны быть заточены под него
+@include for-tablet-landscape-up {
+.posts{
+ display: inline-flex;
+ flex-direction: column;
+ // width: 90%;
+
+}
+
+}
+
+// min-width: 1200px
+@include for-desktop-up {
+
+}

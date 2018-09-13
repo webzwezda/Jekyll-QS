@@ -1,0 +1,85 @@
+.relPost{
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: .4rem;
+
+  font-size: 16px
+
+}
+
+.relPost__post{
+  height: 60px;
+
+  margin-left: .4rem;
+  margin-bottom: .4rem;
+
+  overflow-y: hidden;
+}
+
+.relPost__gradient{
+  width: 60px;
+  height: 60px;
+
+  margin-right: .4rem;
+
+  float: left;
+
+    img{
+      max-width: 100%;
+    }
+}
+
+.relPost__link{
+  font-size: 1.1em;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  color: color(green, 3);
+  line-height: 20px;
+  text-shadow: 1px 1px 2px #e0e0e0;
+
+    &:hover{
+      color: color(green, 1);
+    }
+ }
+// min-width: 600px ++++++++
+@include for-tablet-portrait-up {
+  .relPost__post{
+    width: 70%;
+
+  }
+}
+
+// min-width: 900px - все сайты должны быть заточены под него
+@include for-tablet-landscape-up {
+.relPost{
+  font-size: 13px;
+  // position: sticky;
+  // top: 50px;
+}
+.title__columns{
+  &:after {
+    margin: calc(1.1em + 1px) 2px 0 2px;
+  }
+}
+.relPost__post{
+  width: auto;
+
+  margin-bottom: .6rem;
+ }
+.relPost__link{
+  text-transform: none;
+  font-weight: 400;
+}
+}
+
+// min-width: 1200px
+@include for-desktop-up {
+
+.relPost__link{
+  font-size: 1.2em;
+  // text-transform: uppercase;
+  // font-weight: 700;
+}
+
+}

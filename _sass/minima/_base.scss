@@ -1,0 +1,177 @@
+:root {
+  --yellow1: #EFBB35;
+  --subtle-yellow1: rgba(239, 187, 53, 0.6);
+  --subtle-yellow2: rgba(236, 198, 48, .1);
+  --ex-fsize: 17px;
+}
+html{
+  font-size: 20px;
+  // background-color: rgba(250, 250, 250, 0.9);
+  background-color: rgba(#fff, .1);
+}
+$gap: .4rem;
+
+body{
+  // height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto auto auto;
+  grid-template-areas: "header"
+                       "bread"
+                       "content"
+                       "pagin"
+                       "relPost"
+                       "menuRight"
+
+}
+.site__header{
+  grid-area: header;
+
+}
+.breadcrumb__ul{
+  grid-area: bread;
+}
+.relPost{
+  grid-area: relPost;
+}
+.menuRight{
+  grid-area: menuRight;
+
+}
+.content{
+  grid-area: content;
+
+}
+
+.pagination__comment{
+  grid-area: pagin;
+
+  margin-bottom: .5rem !important;
+
+}
+.comment{
+  padding: 0 $gap;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+
+  margin: $gap 0 ;
+
+  padding: 0;
+
+  list-style: none;
+
+  a.active {
+      background-color: color(green,2);
+      color: white;
+  }
+}
+.pagination__link {
+  color: black;
+  float: left;
+  padding: .5em 1em;
+  text-decoration: none;
+  transition: background-color .1s;
+
+  &:hover:not(.active) {
+    background-color: color(green,3);
+    color: #fff;
+  }
+}
+.next,.prev{
+  transform: translateY(-5%);
+}
+.share{
+  margin-top: $gap;
+  margin-left: $gap;
+
+  font-size: 16px;
+}
+$sIcn: 1em;
+%defSvg{
+  display: inline-block;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    background: url("/assets/svg/facebook.svg") no-repeat;
+    width: $sIcn;
+    height: $sIcn;
+    margin: 0 6px 0 0;
+ }
+}
+.svg__fb{
+@extend %defSvg;
+}
+.svg__tw{
+@extend %defSvg;
+  &::before{
+    background: url("/assets/svg/twitter.svg") no-repeat;
+  }
+}
+.odnkl{
+@extend %defSvg;
+  &::before{
+    background: url("/assets/svg/odnoklassniki.svg") no-repeat;
+  }
+}
+.vk{
+@extend %defSvg;
+  &::before{
+    background: url("/assets/svg/vk.svg") no-repeat;
+  }
+}
+.google{
+  @extend %defSvg;
+    &::before{
+      background: url("/assets/svg/google.svg") no-repeat;
+    }
+}
+.pinterest{
+  @extend %defSvg;
+    &::before{
+      background: url("/assets/svg/pinterest.svg") no-repeat;
+    }
+}
+.telegram{
+  @extend %defSvg;
+    &::before{
+      background: url("/assets/svg/telegram.svg") no-repeat;
+    }
+}
+.email{
+  @extend %defSvg;
+    &::before{
+      background: url("/assets/svg/email.svg") no-repeat;
+    }
+}
+// min-width: 600px ++++++++
+@include for-tablet-portrait-up {
+ html{
+   background-color: rgba(#eeeeee, .7);
+ }
+}
+
+// min-width: 900px - все сайты должны быть заточены под него
+@include for-tablet-landscape-up {
+body{
+    // height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: 7fr 4fr;
+    grid-template-rows: auto auto 1fr auto ;
+    grid-template-areas: "header header"
+                         "bread ."
+                         "content menuRight"
+                         "pagin ."
+ }
+}
+
+// min-width: 1200px
+@include for-desktop-up {
+
+}

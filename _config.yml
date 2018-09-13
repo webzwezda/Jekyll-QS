@@ -1,0 +1,53 @@
+title: Как создать сайт?
+email: your-email@example.com
+description: Основы самостоятельной разработки сайтов.
+baseurl: ""
+author: "Ilya Kozel'"
+publisher: "Сельский бизнес selxoz-busines.ru"
+
+url: "http://192.168.0.11:3002"
+lang: ru
+
+encoding: utf-8
+
+pagination:
+  enabled: true
+  per_page: 3
+  permalink: '/:num/'
+  title: ':title | :num of :max'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
+
+kramdown:
+  input: GFM
+  auto_ids: false
+
+compress_html:
+  clippings: all
+  comments: [""]
+  endings: [html, head, body, li, dt, dd, rt, rp, optgroup, option, colgroup, caption, thead, tbody, tfoot, tr, td, th]
+  profile: false
+  blanklines: false
+  ignore:
+    envs: []
+
+permalink: /:categories/:title.html
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - readme.md
+  - examplePost.md
+  - note.md
+
+collections:
+  coll1:
+    output: true
+    permalink: /:collection/:categories/:title.html
+  coll2:
+    output: true
+    permalink: /:collection/:categories/:title.html
